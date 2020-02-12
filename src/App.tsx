@@ -1,6 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Simple from "./component/simple";
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          <code>{1 + 1}</code>
         </p>
         <a
           className="App-link"
@@ -18,9 +19,10 @@ const App = () => {
         >
           Learn React
         </a>
+        <Simple></Simple>
       </header>
     </div>
   );
-}
+};
 
 export default App;
