@@ -4,9 +4,15 @@ import Employee from "../model/employee";
 import MyChild from "./MyChild";
 import { publishMessage } from "./Message";
 import "./Simple.scss";
+import styled from "styled-components";
 
 type State = { childName: string };
 type Props = {};
+
+const RedDiv = styled.div`
+  color: red;
+  background-color: blue;
+`;
 
 export default class Simple extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -22,8 +28,10 @@ export default class Simple extends React.Component<Props, State> {
     ];
     return (
       <div>
-        Hello everyone, today is{" "}
-        {moment(new Date().toUTCString()).format("DD-MM-YYYY")}
+        <RedDiv>
+          Hello everyone, today is
+          {moment(new Date().toUTCString()).format("DD-MM-YYYY")}{" "}
+        </RedDiv>
         {employees.map(e => {
           if (e.name === "Nhân") {
             return <div></div>;
