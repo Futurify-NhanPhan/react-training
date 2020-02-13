@@ -3,6 +3,7 @@ import moment from "moment";
 import Employee from "../model/employee";
 import MyChild from "./MyChild";
 import { publishMessage } from "./Message";
+import "./Simple.scss";
 
 type State = { childName: string };
 type Props = {};
@@ -14,10 +15,21 @@ export default class Simple extends React.Component<Props, State> {
   }
   render() {
     let employee: Employee = { name: "Nhân Phan", address: "Tân Phú", age: 29 };
+    let employees: Employee[] = [
+      employee,
+      { name: "Tân", address: "Bình Tân", age: 30 },
+      { name: "Minh", address: "Bình Tân", age: 31 }
+    ];
     return (
       <div>
         Hello everyone, today is{" "}
         {moment(new Date().toUTCString()).format("DD-MM-YYYY")}
+        {employees.map(e => {
+          if (e.name === "Nhân") {
+            return <div></div>;
+          }
+          return <div className={e.age >= 30 ? "red" : "blue"}>{e.name}</div>;
+        })}
         <br />
         Hello {employee.name}, {employee.address}
         <div>Name from parent {this.state.childName}</div>
