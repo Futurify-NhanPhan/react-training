@@ -5,6 +5,8 @@ import MyChild from "./MyChild";
 import { publishMessage } from "./Message";
 import "./Simple.scss";
 import styled from "styled-components";
+import { getDefaultSettings } from "http2";
+import getData from "../services/my-service";
 
 type State = { childName: string };
 type Props = {};
@@ -32,6 +34,9 @@ export default class Simple extends React.Component<Props, State> {
           Hello everyone, today is
           {moment(new Date().toUTCString()).format("DD-MM-YYYY")}{" "}
         </RedDiv>
+        {getData().map(d => {
+          return <div>{d}</div>;
+        })}
         {employees.map(e => {
           if (e.name === "Nhân") {
             return <div></div>;
