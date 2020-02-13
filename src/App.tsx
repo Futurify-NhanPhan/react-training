@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Simple from "./component/simple";
+import Simple from "./component/Simple";
+import { Message } from "./component/Message";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           Learn React
         </a>
         <Simple></Simple>
+        <Message></Message>
       </header>
     </div>
   );

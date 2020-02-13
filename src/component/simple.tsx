@@ -1,15 +1,41 @@
 import React from "react";
 import moment from "moment";
+import Employee from "../model/employee";
+import MyChild from "./MyChild";
+import { publishMessage } from "./Message";
 
-type State = {};
+type State = { childName: string };
 type Props = {};
 
 export default class Simple extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { childName: "My child name" };
+  }
   render() {
+    let employee: Employee = { name: "Nhân Phan", address: "Tân Phú", age: 29 };
     return (
       <div>
         Hello everyone, today is{" "}
         {moment(new Date().toUTCString()).format("DD-MM-YYYY")}
+        <br />
+        Hello {employee.name}, {employee.address}
+        <div>Name from parent {this.state.childName}</div>
+        <MyChild name={this.state.childName}></MyChild>
+        <button
+          onClick={() => {
+            publishMessage("You can't do that", "error");
+          }}
+        >
+          show error
+        </button>
+        <button
+          onClick={() => {
+            publishMessage("You can do that", "success");
+          }}
+        >
+          show success
+        </button>
       </div>
     );
   }
